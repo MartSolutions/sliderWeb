@@ -1,5 +1,5 @@
 :root{
-    --primary : #74bb02;
+    --primary : #039777;
 }
 
 ::-webkit-scrollbar{
@@ -39,10 +39,11 @@ body{
 #slider{
     position:fixed;
     width:45%;
-    height: calc(70vh - 5rem);
+    height: calc(85vh - 10rem);
     /* border:solid 1px red; */
-    top:5rem;
-    right:0;
+    top:0;
+    bottom:0;
+    right:1rem;
     pointer-events: none;
     overflow-x:hidden;
     overflow-y:scroll;
@@ -50,25 +51,26 @@ body{
     scroll-behavior: smooth;
     scroll-snap-align: center;
     animation:heart 6s ease-in-out infinite;
-    filter: drop-shadow(2px 0 10px #000);
+    filter: drop-shadow(0 0 10px #000);
     /* border:solid 1px red; */
     z-index:10;
+    margin:5rem 0.5rem auto auto;
 }
 
 @keyframes heart{
     0%{
         transform: scale(1);
-    filter: drop-shadow(2px 0 10px #000);
+    filter: drop-shadow(0 0 10px #0008);
 
     } 
     50%{
-        transform: scale(1.05);
-        filter: drop-shadow(7px 0 20px #000);
+        transform: scale(1.075);
+        filter: drop-shadow(0 0 10px 5px #000);
 
     }
     100%{
         transform: scale(1);
-        filter: drop-shadow(2px 0 10px #000);
+        filter: drop-shadow(0 0 10px #0008);
 
     }
 }
@@ -85,6 +87,7 @@ body{
     object-fit:cover;
     z-index:10;
     margin-bottom:50vh;
+    margin:auto auto;
     /* border:solid 1px green; */
 
 }
@@ -156,23 +159,30 @@ body{
 
 #content .description{
     /* border:solid 1px green; */
-    height:100%;
+    max-height:min-content;
     display:block;
     scroll-snap-align: center;
-    height:90%;
     max-width: 50vw;
     background-image: linear-gradient(to bottom right, #0003, #fff9, #0003);
     inset:0;
     padding:2rem 1rem;
-    margin:3rem 1rem;
+    /* margin:3rem 1rem; */
     backdrop-filter: blur(20px);
     border-radius: 10px;
     display:grid;
     align-content: center;
+    height: max-content;
+    margin: auto auto auto 1rem;
+    /* top: -2rem; */
+    width:100%;
+    position: relative;
 }
 
 #content .description .title{
     color:var(--primary);
+    font-size:1.5rem;
+    font-weight:700;
+    text-shadow:0 0 5px #fff, 0 0 10px #0005;
 }
 
 
