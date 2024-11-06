@@ -87,7 +87,7 @@ body{
     object-fit:cover;
     z-index:10;
     margin-bottom:50vh;
-    margin:auto auto;
+    margin:0 auto 100vh auto;
     /* border:solid 1px green; */
 
 }
