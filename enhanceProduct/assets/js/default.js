@@ -21,8 +21,8 @@ $(document).ready(function(){
         if(scrollTop >= 0 && scrollTop <= totalHeight){
             var percent = (scrollTop * 100) / totalHeight;
             var availableW = ($("body").width() - $(".product").width()) - 15
-            $('#first .product').css('right', ((availableW * ( percent/100)))+'px')
-            $('#first .product').css('top', 'calc(15vh + '+ (percent / 5)+'%)')
+            $('.product').css('right', ((availableW * ( percent/100)))+'px')
+            $('.product').css('top', 'calc(15vh + '+ (percent / 10)+'%)')
             $('#first .description').css('margin-left', percent+'%')
             $('#first .description').css('opacity', ( 1 / percent))
             $('#first .btn').css('margin-bottom', '-'+percent+'%')
@@ -39,21 +39,20 @@ $(document).ready(function(){
         //    console.log("Segundo contenedor:"+ percent)           
             var r_str = $('.product').css('right')
             var r_num = parseFloat(r_str.replace('px', ''));
-            var r_per = ((r_num) * 100) / bodyW;
+            var r_per = ((r_num) * 100) / bodyW - 20;
 
             console.log("AvailableW:"+ availableW)    
-            console.log("% top del producto:"+ t_per)    
+            // console.log("% top del producto:"+ t_per)    
             console.log("Move to right:"+ r_per * (1 - percent / 100))    
-            
-            var right = r_per * (1 - percent / 100)
+            var right = r_per *( (1 - percent) / 100)
             // var top = (t_per * (1 - (percent + 10) / 100))
             // var top = t_per
             // console.log('top_save: '+top_save)
-            var rotate = (percent* (1/4)) - (1/3)
-            var scale = 1+((percent/100)/2)
-            $('#first .product').css({
-                'right': right+ '%',
-                'transform': 'scale('+scale+') ',
+            var rotate = 1+(percent* (1/4)) - (1/3)
+            var scale = 1+((percent/100)/10)
+            $('.product').css({
+                // 'right': percent + '%',
+                'transform': 'scale('+scale+') translateX('+(percent * 1.11)+'%) translateY('+(percent / -6 )+'%) rotateZ('+percent / -3+'deg)',
                 // rotateZ(-'+rotate+'deg)
                 // 'top': 'calc(0.1 * -'+top+'% )',
             })
@@ -68,9 +67,9 @@ $(document).ready(function(){
             // var top = (t_per * (1 - (percent + 10) / 100))
             var rotate = (percent* (1/3)) - (1/3)
             var scale = 1+((percent/100)/2.5)
-            $('#first .product').css('right', right+ '%')
-            // $('#first .product').css('top', top+'%')
-            $('#first .product').css('transform', 'scale('+scale+') rotateZ(-'+rotate+'deg)')
+            $('.product').css('right', right+ '%')
+            // $('.product').css('top', top+'%')
+            $('.product').css('transform', 'scale('+scale+') rotateZ(-'+rotate+'deg)')
         
 
         }

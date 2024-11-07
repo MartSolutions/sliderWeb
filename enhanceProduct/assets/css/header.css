@@ -11,8 +11,8 @@ header{
     height:4rem;
     max-height:4rem;
     position:fixed;
-    z-index:9;
     overflow: hidden;
+    z-index:9;
 }
 
 header a{
