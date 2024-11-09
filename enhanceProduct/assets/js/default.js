@@ -9,6 +9,15 @@ $(document).ready(function(){
     let totalWindow = $(window).height();
     console.log('Altura total del viewport:', totalWindow);
 
+    if(totalHeight > totalWindow){
+        console.log("La pantalla es vertical")
+    }else{
+        console.log("La pantalla es horizontal")
+        $(".product").css({
+            'height':'calc(100vh - 7rem)',
+            'max-height':'calc(100vh - 7rem)'
+        })
+    }
     
     var scrollTop = 0;
 
@@ -21,11 +30,20 @@ $(document).ready(function(){
         if(scrollTop >= 0 && scrollTop <= totalHeight){
             var percent = (scrollTop * 100) / totalHeight;
             var availableW = ($("body").width() - $(".product").width()) - 15
+            //Transiciòn del producto
             $('.product').css('right', ((availableW * ( percent/100)))+'px')
             $('.product').css('top', 'calc(15vh + '+ (percent / 10)+'%)')
-            $('#first .description').css('margin-left', percent+'%')
-            $('#first .description').css('opacity', ( 1 / percent))
-            $('#first .btn').css('margin-bottom', '-'+percent+'%')
+            //Transicion de la descripcion
+            $('#first .description').css({
+                'margin-left': percent+'%',
+                'opacity': ( 1 / percent)
+            }
+            )
+            
+            $('#first .btn').css({
+                'margin-bottom': -percent+'%',
+            })
+            
             $('#two .description').css('margin-left', 100 - percent+'%')
             console.log("Primer contenedor:"+ percent)
         }
